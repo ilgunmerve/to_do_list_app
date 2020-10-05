@@ -1,0 +1,9 @@
+@import '../styles/main.scss';
+
+.container{
+    display: flex;
+    justify-content: center;
+    display: grid;
+    grid-auto-flow: column;
+    grid-column-gap: 10px;
+}

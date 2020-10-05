@@ -1,0 +1,31 @@
+$primary: #0E94E0;
+$accent: white;
+$highlight: #E9E9E9 ;
+$font-stack: Helvetica, sans-serif;;
+
+body{
+    font-family: $font-stack;
+    background-color: $accent;
+}
+
+nav{    
+    ul{
+        background-color: $primary;
+        margin: 0;
+        margin-bottom: 10px;
+        padding: 0;
+        list-style: none;
+    }
+    
+    li{
+        display: inline-block;
+        padding: 6px 12px;
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+    }
+
+    li:hover{
+        color: yellow;
+    }
+}

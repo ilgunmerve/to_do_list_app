@@ -1,0 +1,30 @@
+@import '../../styles/main.scss';
+
+.ListItem{
+    border: 1.3px solid $primary;
+    border-radius: 5px;
+    width: 33%;
+    display: flex;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    margin-top: 6px;
+}
+
+.ListItem:hover{
+  background-color: $highlight;
+}
+
+.col-25 {
+    float: left;
+    width: 25%;
+    padding-left: 45px;
+  }
+  
+  /* Floating column for inputs: 75% width */
+  .col-75 {
+    text-align: left;
+    float: left;
+    width: 75%;
+  }
