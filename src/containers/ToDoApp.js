@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react'
 import Input from '../components/Input/Input'
 import Button from '../components/Button/Button'
 import ToDoItem from '../components/ToDoItem/ToDoItem'
+import {connect} from 'react-redux';
 import '../styles/ToDoStyle.scss'
+import {addToDo, deleteTodo} from '../store/actions/toDoAction'
 
-const ToDoApp = () => {
-    const [toDoList, setToDoList] = useState([]);
+const ToDoApp = ({ dispatch, toDoList }) => {
+    //const [toDoList, setToDoList] = useState([]);
     const [toDo, setToDo] = useState(
         { itemId: 0, text: '', status: '' }
     );
@@ -17,36 +19,33 @@ const ToDoApp = () => {
         });
     }
 
-    const addListItem =()=> {
-        const newToDo = {...toDo};
-        newToDo.itemId++;
-        setToDo(newToDo);
-        const newToDoList = [...toDoList, toDo];
-        setToDoList(newToDoList);
-    };
-
-    const deleteListItem =(item)=>{
-        console.log('deleteListItem: ' + item.itemId);
-        const newToDoList = toDoList.filter(listItem => listItem.itemId != item.itemId);
-        setToDoList(newToDoList);
-        console.log(newToDoList);
-    };
-
-    useEffect(() => { console.log(toDoList) }, [toDoList])
-
+    // useEffect(() => { console.log(toDoList) }, [toDoList])
     return (
-        <div>
-            <div className='container'>
+        const formElementsArray = Object.entries(this.state.registrationForm).map(([formElement, value]) => {}
+        <>
+            <div className='container'> 
                 <Input name='text' value={toDo.text} id={toDo.itemId} changed={handleChange} />
-                <Button label="Add" clicked={addListItem} />
+                <Button label="Add" clicked={()=>dispatch(addToDo(toDo.text))} />
             </div>
             <div>
-                {toDoList.map(item => (
-                    <ToDoItem clicked={() => deleteListItem(item)} key={item.itemId} textValue={item.text} status={item.status} />
-                ))}
+                {/* {toDoList.map(item => ( 
+                    <ToDoItem clicked={() => dispatch(deleteTodo(item.itemId))} key={item.itemId} 
+                    textValue={item.text} status={item.status} />
+                ))} */}
             </div>
-        </div>
+        </>
     );
 };
 
-export default ToDoApp;
+const mapStateToProps =(state)=>{
+    console.log( state.toDoList );
+    return { toDoList: state.toDoList  };
+};
+
+// const MapDispatchToProps =(dispatch)=>{
+//     return{
+//         addToDo: () => dispatch(addToDo)
+//     }
+// }
+
+export default connect(mapStateToProps)(ToDoApp);

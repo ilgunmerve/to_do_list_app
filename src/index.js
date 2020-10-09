@@ -3,11 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {createStore, combineReducers} from 'redux';
+import toDoListReducer from './store/reducers/toDoListReducer'
+import { Provider } from 'react-redux';
+
+const reducer = combineReducers({toDoList: toDoListReducer});
+const store = createStore(reducer);
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>  
+  </Provider>,
   document.getElementById('root')
 );
 
