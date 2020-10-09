@@ -6,8 +6,7 @@ import {connect} from 'react-redux';
 import '../styles/ToDoStyle.scss'
 import {addToDo, deleteTodo} from '../store/actions/toDoAction'
 
-const ToDoApp = ({ dispatch, toDoList }) => {
-    //const [toDoList, setToDoList] = useState([]);
+const ToDoApp = ({ dispatch, toDoList}) => {
     const [toDo, setToDo] = useState(
         { itemId: 0, text: '', status: '' }
     );
@@ -21,31 +20,25 @@ const ToDoApp = ({ dispatch, toDoList }) => {
 
     // useEffect(() => { console.log(toDoList) }, [toDoList])
     return (
-        const formElementsArray = Object.entries(this.state.registrationForm).map(([formElement, value]) => {}
         <>
             <div className='container'> 
                 <Input name='text' value={toDo.text} id={toDo.itemId} changed={handleChange} />
-                <Button label="Add" clicked={()=>dispatch(addToDo(toDo.text))} />
+                <Button label="Add" clicked={() => dispatch(addToDo(toDo.text))} />
             </div>
             <div>
-                {/* {toDoList.map(item => ( 
+                {toDoList.map(item => ( 
                     <ToDoItem clicked={() => dispatch(deleteTodo(item.itemId))} key={item.itemId} 
                     textValue={item.text} status={item.status} />
-                ))} */}
-            </div>
+                ))}
+            </div>            
         </>
     );
 };
 
 const mapStateToProps =(state)=>{
-    console.log( state.toDoList );
-    return { toDoList: state.toDoList  };
+   // console.log( state.toDoListReducer.toDoList );
+    return { toDoList: state.toDoListReducer.toDoList };
 };
 
-// const MapDispatchToProps =(dispatch)=>{
-//     return{
-//         addToDo: () => dispatch(addToDo)
-//     }
-// }
 
 export default connect(mapStateToProps)(ToDoApp);

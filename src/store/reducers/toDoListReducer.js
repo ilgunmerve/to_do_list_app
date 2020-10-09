@@ -8,7 +8,7 @@ const reducer =(state = initialState, action) => {
             return {...state, toDoList: [...state.toDoList, action.toDoItem]}; 
            // return [...state.toDoList, action.toDoItem];
         case 'DELETE_TODO':
-            return state.toDoList.filter(listItem => listItem.itemId !== action.itemId);
+            return {...state, toDoList: state.toDoList.filter(listItem => listItem.itemId !== action.itemId)};
         default:
             return state;
     }

@@ -7,7 +7,7 @@ import {createStore, combineReducers} from 'redux';
 import toDoListReducer from './store/reducers/toDoListReducer'
 import { Provider } from 'react-redux';
 
-const reducer = combineReducers({toDoList: toDoListReducer});
+const reducer = combineReducers({toDoListReducer: toDoListReducer});
 const store = createStore(reducer);
 
 ReactDOM.render(
