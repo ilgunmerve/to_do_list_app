@@ -3,7 +3,7 @@ import './ToDoItem.scss'
 import deleteIcon from '../../icons/delete.png'
 
 const ToDoItem =(props)=> {
-    const {textValue, status, clicked} = props; //destructuring
+    const {textValue, status, clicked} = props; 
     
     return(
         <div className="ListItem">
