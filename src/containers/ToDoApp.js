@@ -18,7 +18,6 @@ const ToDoApp = ({ dispatch, toDoList}) => {
         });
     }
 
-    // useEffect(() => { console.log(toDoList) }, [toDoList])
     return (
         <>
             <div className='container'> 
